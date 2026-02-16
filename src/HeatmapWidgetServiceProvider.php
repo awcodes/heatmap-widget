@@ -2,6 +2,8 @@
 
 namespace Awcodes\HeatmapWidget;
 
+use Awcodes\HeatmapWidget\Commands\HeatmapWidgetCommand;
+use Awcodes\HeatmapWidget\Testing\TestsHeatmapWidget;
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
@@ -13,8 +15,6 @@ use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Awcodes\HeatmapWidget\Commands\HeatmapWidgetCommand;
-use Awcodes\HeatmapWidget\Testing\TestsHeatmapWidget;
 
 class HeatmapWidgetServiceProvider extends PackageServiceProvider
 {
@@ -31,7 +31,7 @@ class HeatmapWidgetServiceProvider extends PackageServiceProvider
          */
         $package->name(static::$name)
             ->hasCommands($this->getCommands())
-            ->hasInstallCommand(function (InstallCommand $command) {
+            ->hasInstallCommand(function (InstallCommand $command): void {
                 $command
                     ->publishConfigFile()
                     ->publishMigrations()
