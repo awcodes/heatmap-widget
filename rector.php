@@ -1,7 +1,8 @@
 <?php
 
+declare(strict_types=1);
+
 use Rector\Config\RectorConfig;
-use Rector\Exception\Configuration\InvalidConfigurationException;
 
 try {
     return RectorConfig::configure()
@@ -16,6 +17,7 @@ try {
             earlyReturn: true,
         )
         ->withPhpSets();
-} catch (InvalidConfigurationException $e) {
-    echo $e->getMessage();
+} catch (Rector\Exception\Configuration\InvalidConfigurationException $e) {
+    echo 'Error: ' . $e->getMessage() . PHP_EOL;
+    exit(1);
 }
