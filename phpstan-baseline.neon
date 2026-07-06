@@ -1,0 +1,7 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Property Awcodes\\HeatmapWidget\\HeatmapWidget\:\:\$view \(view\-string\) does not accept default value of type string\.$#'
+			identifier: property.defaultValue
+			count: 1
+			path: src/HeatmapWidget.php

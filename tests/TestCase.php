@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Awcodes\HeatmapWidget\Tests;
 
 use Awcodes\HeatmapWidget\HeatmapWidgetServiceProvider;
@@ -14,8 +16,6 @@ use Filament\Schemas\SchemasServiceProvider;
 use Filament\Support\SupportServiceProvider;
 use Filament\Tables\TablesServiceProvider;
 use Filament\Widgets\WidgetsServiceProvider;
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\Concerns\WithWorkbench;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -23,16 +23,11 @@ use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
 
 class TestCase extends Orchestra
 {
-    use LazilyRefreshDatabase;
     use WithWorkbench;
 
-    protected function setUp(): void
+    public function getEnvironmentSetUp($app): void
     {
-        parent::setUp();
-
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Awcodes\\HeatmapWidget\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
-        );
+        $app['config']->set('app.key', 'base64:' . base64_encode(random_bytes(32)));
     }
 
     protected function getPackageProviders($app)
@@ -57,15 +52,5 @@ class TestCase extends Orchestra
         sort($providers);
 
         return $providers;
-    }
-
-    public function getEnvironmentSetUp($app): void
-    {
-        $app['config']->set('database.default', 'testing');
-    }
-
-    protected function defineDatabaseMigrations(): void
-    {
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
     }
 }

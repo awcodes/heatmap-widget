@@ -1,6 +1,6 @@
 {
     "name": "awcodes/heatmap-widget",
-    "description": "This is my package heatmap-widget",
+    "description": "A GitHub-style contribution heatmap widget for Filament.",
     "keywords": [
         "awcodes",
         "laravel",
@@ -31,18 +31,17 @@
         "larastan/larastan": "^3.0",
         "laravel/pint": "^1.0",
         "nunomaduro/collision": "^8.0",
-        "orchestra/testbench": "^9.0|^10.0",
-        "pestphp/pest": "^3.7|^4.0",
-        "pestphp/pest-plugin-arch": "^3.0|^4.0",
-        "pestphp/pest-plugin-laravel": "^3.0|^4.0",
-        "pestphp/pest-plugin-livewire": "^3.0|^4.0",
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-arch": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0",
+        "pestphp/pest-plugin-livewire": "^4.0",
         "rector/rector": "^2.0",
         "spatie/laravel-ray": "^1.26"
     },
     "autoload": {
         "psr-4": {
-            "Awcodes\\HeatmapWidget\\": "src/",
-            "Awcodes\\HeatmapWidget\\Database\\Factories\\": "database/factories/"
+            "Awcodes\\HeatmapWidget\\": "src/"
         }
     },
     "autoload-dev": {
@@ -52,27 +51,29 @@
     },
     "scripts": {
         "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
-        "analyse": "phpstan analyse",
         "lint": "pint",
         "refactor": "rector",
-        "test": "pest",
         "test:lint": "pint --test",
-        "test:refactor": "rector --dry-run"
+        "test:refactor": "rector --dry-run",
+        "test:types": "phpstan analyse",
+        "test:unit": "pest",
+        "test": [
+            "@test:refactor",
+            "@test:lint",
+            "@test:types",
+            "@test:unit"
+        ]
     },
     "extra": {
         "laravel": {
             "providers": [
                 "Awcodes\\HeatmapWidget\\HeatmapWidgetServiceProvider"
-            ],
-            "aliases": {
-                "HeatmapWidget": "Awcodes\\HeatmapWidget\\Facades\\HeatmapWidget"
-            }
+            ]
         }
     },
     "config": {
         "sort-packages": true,
         "allow-plugins": {
-            "composer/package-versions-deprecated": true,
             "pestphp/pest-plugin": true,
             "phpstan/extension-installer": true
         }
