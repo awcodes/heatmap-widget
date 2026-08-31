@@ -41,6 +41,7 @@ jobs:
         [
           {"php":"8.5","laravel":"13.*","filament":"5.*","testbench":"11.*","dependencies":"prefer-stable"},
           {"php":"8.4","laravel":"13.*","filament":"5.*","testbench":"11.*","dependencies":"prefer-stable"},
+          {"php":"8.5","laravel":"12.*","filament":"5.*","testbench":"10.*","dependencies":"prefer-stable"},
           {"php":"8.4","laravel":"12.*","filament":"5.*","testbench":"10.*","dependencies":"prefer-stable"},
           {"php":"8.3","laravel":"12.*","filament":"5.*","testbench":"10.*","dependencies":"prefer-stable"},
           {"php":"8.4","laravel":"12.*","filament":"4.*","testbench":"10.*","dependencies":"prefer-stable"},
