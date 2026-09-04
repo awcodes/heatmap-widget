@@ -1,0 +1,9 @@
+version: 1
+
+title: Heatmap Widget
+
+navigation:
+  - index
+  - installation
+  - usage
+  - configuration
