@@ -1,7 +1,6 @@
+# Generate this per package with:
+#   vendor/bin/phpstan analyse --generate-baseline
+# Commit the result, then set `run-static-analysis: true` in the caller workflow.
+# An empty baseline (below) is valid for packages that already pass at level 5.
 parameters:
-	ignoreErrors:
-		-
-			message: '#^Property Awcodes\\HeatmapWidget\\HeatmapWidget\:\:\$view \(view\-string\) does not accept default value of type string\.$#'
-			identifier: property.defaultValue
-			count: 1
-			path: src/HeatmapWidget.php
+    ignoreErrors: []
