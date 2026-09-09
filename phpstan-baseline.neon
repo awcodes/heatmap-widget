@@ -1,6 +1,7 @@
-# Generate this per package with:
-#   vendor/bin/phpstan analyse --generate-baseline
-# Commit the result, then set `run-static-analysis: true` in the caller workflow.
-# An empty baseline (below) is valid for packages that already pass at level 5.
 parameters:
-    ignoreErrors: []
+	ignoreErrors:
+		-
+			message: '#^PHPDoc type class\-string\<Workbench\\App\\Models\\User\> of property Workbench\\Database\\Factories\\UserFactory\:\:\$model is not covariant with PHPDoc type class\-string\<TModel of Workbench\\App\\Models\\User\> of overridden property Illuminate\\Database\\Eloquent\\Factories\\Factory\<TModel of Workbench\\App\\Models\\User\>\:\:\$model\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: workbench/database/factories/UserFactory.php
