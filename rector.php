@@ -8,6 +8,10 @@ try {
     return RectorConfig::configure()
         ->withPaths([
             __DIR__ . '/src',
+            __DIR__ . '/workbench',
+        ])
+        ->withSkip([
+            __DIR__ . '/workbench/storage',
         ])
         ->withPreparedSets(
             deadCode: true,

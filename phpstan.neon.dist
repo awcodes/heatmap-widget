@@ -4,6 +4,11 @@ includes:
 
 parameters:
     level: 5
+    reportUnmatchedIgnoredErrors: false
     paths:
         - src
+        - workbench
+    excludePaths:
+        analyse:
+            - workbench/storage (?)
     tmpDir: build/phpstan
