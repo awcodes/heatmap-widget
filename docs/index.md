@@ -20,11 +20,6 @@ glance, rather than as a line chart or a table. It is a Filament widget, so it c
 placed anywhere Filament widgets are supported: a dashboard, a custom page, or a
 resource page.
 
-## Requirements
-
-- PHP 8.2 or higher
-- Filament v4 or v5
-
 ## How it works
 
 You create a widget class that extends `HeatmapWidget` and return a map of dates to

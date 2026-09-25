@@ -5,6 +5,16 @@ description: Install Heatmap Widget and register its views with your Filament th
 
 # Installation
 
+## Compatibility
+
+| Filament version | Package version |
+|------------------|-----------------|
+| 4.x & 5.x        | 1.x             |
+
+Heatmap Widget requires PHP 8.2 or later and `filament/filament`.
+
+## Install the package
+
 Install the package via Composer:
 
 ```bash
